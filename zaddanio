@@ -1,0 +1,46 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+int liczby;
+class files {
+   ifstream fileIn;
+   ofstream fileOut;
+  public:
+   files(); //otwarcie plików obu
+   ~files();
+   void loop();
+};
+files::files()
+{
+   fileIn.open("liczby.txt");
+   fileOut.open("wynik.txt");
+}
+
+files::~files()
+{
+   fileIn.close();
+   fileOut.close();
+}
+
+void files::loop()
+{
+while(!fileIn.eof()){
+	fileIn>>liczby;
+	if(liczby>1000){
+		fileOut<<" "<<liczby;
+		cout<<" "<<liczby;
+	}
+}
+	
+}
+
+
+
+
+
+main()
+{
+  files liczby;
+  liczby.loop();
+  return 1;
+}
